@@ -1,0 +1,41 @@
+MediBook - Clinic Management System
+Test Scenarios
+==============
+How to execute: from the project root run
+    python tests/run_scenarios.py
+
+NORMAL SCENARIOS
+N1. Book a valid appointment
+    Input:    registered doctor + registered patient + future time
+    Expected: appointment is created with status "confirmed"
+N2. Specialist fee (polymorphism)
+    Input:    Specialist with base fee 200
+    Expected: calculate_fee() returns 300.0 (General returns 200.0)
+
+BUSINESS-RULE VIOLATIONS
+B1. Double booking
+    Input:    same doctor, same time, an active appointment already exists
+    Expected: ValueError "This time slot is already booked"
+B2. Booking in the past
+    Input:    time earlier than now
+    Expected: ValueError "Cannot book an appointment in the past"
+
+EDGE CASES
+E1. Cancel an already cancelled appointment
+    Expected: ValueError "Appointment is already cancelled"
+E2. Phone number shorter than 11 digits
+    Input:    "0101"
+    Expected: ValueError "Phone number must be at least 11 digits"
+E3. Re-book a slot after cancelling
+    Expected: booking succeeds because a cancelled appointment frees the slot
+E4. Invalid specialty
+    Input:    "Magic"
+    Expected: ValueError "Invalid specialty. Choose from: ..."
+
+FILE HANDLING
+F1. Save then load
+    Expected: doctors, patients and appointments are restored
+F2. Load when the data file does not exist
+    Expected: program starts with an empty clinic (no crash)
+
+RESULT: 10/10 scenarios passed
