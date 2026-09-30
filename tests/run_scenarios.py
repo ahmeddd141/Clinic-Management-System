@@ -66,6 +66,7 @@ ok = len(loaded.doctors) == 1 and len(loaded.appointments) == 2
 results.append(ok)
 print(f"[{'PASS' if ok else 'FAIL'}] F1 save then load keeps data")
 missing = file_manager.load(os.path.join(tempfile.mkdtemp(), "none.json"))
+#AI بالكامل 
 ok = len(missing.doctors) == 0
 results.append(ok)
 print(f"[{'PASS' if ok else 'FAIL'}] F2 load missing file starts empty")
