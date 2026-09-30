@@ -72,3 +72,4 @@ results.append(ok)
 print(f"[{'PASS' if ok else 'FAIL'}] F2 load missing file starts empty")
 
 print(f"\n{sum(results)}/{len(results)} scenarios passed")
+#AI بالكامل 
